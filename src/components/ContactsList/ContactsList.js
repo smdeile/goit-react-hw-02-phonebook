@@ -1,5 +1,6 @@
 import React from 'react';
 import DeleteContact from './DeleteContact';
+import PropTypes from 'prop-types';
 
 const ContactsList = ({ state, deleteContact }) => (
   <ul>
@@ -15,5 +16,8 @@ const ContactsList = ({ state, deleteContact }) => (
       ))}
   </ul>
 );
-
+ContactsList.propTypes = {
+  deleteContact: PropTypes.func.isRequired,
+  state: PropTypes.object.isRequired,
+};
 export default ContactsList;

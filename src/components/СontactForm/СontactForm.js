@@ -1,10 +1,12 @@
 import React from 'react';
+import styles from './ContactForm.module.css';
+import PropTypes from 'prop-types';
 
 const СontactForm = ({ onSubmit, state, handleChange }) => {
   return (
     <>
-      <form onSubmit={onSubmit}>
-        <label>
+      <form className={styles.form} onSubmit={onSubmit}>
+        <label className={styles.formLabel}>
           Name
           <input
             type="text"
@@ -13,7 +15,7 @@ const СontactForm = ({ onSubmit, state, handleChange }) => {
             onChange={handleChange}
           />
         </label>
-        <label>
+        <label className={styles.formLabel}>
           Number
           <input
             type="number"
@@ -22,9 +24,16 @@ const СontactForm = ({ onSubmit, state, handleChange }) => {
             onChange={handleChange}
           />
         </label>
-        <button type="submit">Add contact</button>
+        <button className={styles.button} type="submit">
+          Add contact
+        </button>
       </form>
     </>
   );
+};
+СontactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  state: PropTypes.object.isRequired,
 };
 export default СontactForm;

@@ -1,0 +1,14 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 150px;
+}
+.formLabel {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+.button {
+  width: 100px;
+}
