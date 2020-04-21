@@ -11,7 +11,10 @@ const ContactsList = ({ state, deleteContact }) => (
       .map(el => (
         <li key={el.id}>
           {el.name}: {el.number}
-          <DeleteContact deleteContact={deleteContact} id={el.id} />
+          <DeleteContact
+            deleteContact={() => deleteContact(el.id)}
+            id={el.id}
+          />
         </li>
       ))}
   </ul>

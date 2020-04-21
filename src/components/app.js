@@ -34,29 +34,25 @@ export default class App extends Component {
       alert(`${this.state.name} is already exist`);
     } else {
       this.setState(prevState => {
-        prevState.contacts.push({
-          name: this.state.name,
-          number: this.state.number,
-          id: shortid.generate(),
-        });
         return {
+          contacts: [
+            ...prevState.contacts,
+            {
+              name: this.state.name,
+              number: this.state.number,
+              id: shortid.generate(),
+            },
+          ],
           name: '',
           number: '',
         };
       });
     }
   };
-  deleteContact = e => {
-    e.preventDefault();
-    let contacts = this.state.contacts;
-
-    this.state.contacts.forEach((el, i) => {
-      if (el.id === e.target.id) {
-        return this.setState(prevState => {
-          return { contact: contacts.splice(i, 1) };
-        });
-      }
-    });
+  deleteContact = id => {
+    this.setState(state => ({
+      contacts: state.contacts.filter(contact => contact.id !== id),
+    }));
   };
   render() {
     return (

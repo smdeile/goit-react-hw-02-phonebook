@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const DeleteContact = ({ deleteContact, id }) => (
-  <button id={id} onClick={deleteContact}>
+  <button key={id} onClick={deleteContact}>
     Delete contact
   </button>
 );
